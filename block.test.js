@@ -10,10 +10,10 @@ describe('Block', () => {
      });
 
      it('check that `data` equals the input', () => {
-        expect(block.data).toEqual(data);
+        expect(block.data).toEqual('wrong data');
      });
 
      it('check that `lastHash` equals the hash of the last block', () => {
-        expect(block.lastHash).toEqual(lastBlock.hash);
+        expect(block.lastHash).toEqual('wrong hash');
      });
 }); 
