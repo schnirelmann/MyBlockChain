@@ -1,4 +1,4 @@
-const BlockChain = require("./block_chain");
+const BlockChain = require("./index");
 const Block = require("./block");
 
 describe("BlockChain", () => {
