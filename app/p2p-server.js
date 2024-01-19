@@ -29,10 +29,10 @@ class P2pServer {
 
   connectSocket(socket) {
     this.sockets.push(socket);
-    console.lot("Socket connectes");
+    console.log("Socket connected");
   }
 }
 
-module.exports = P2pServer;
-
 // $ HTTP_PORT = 3002 P2P_PORT = 5003 PEERS = ws: //localhost:5001, ws: //localhost:5002 npm run dev
+
+module.exports = P2pServer;
