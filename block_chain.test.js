@@ -36,4 +36,18 @@ describe("BlockChain", () => {
 
     expect(bc.isValidChain(bc2.chain)).toBe(false);
   });
+
+  it("Replaces current chain with new chain if the new chain is longer and valid", () => {
+    bc2.addBlock("Block Data");
+    bc.replaceChain(bc2.chain);
+
+    expect(bc.chain).toEqual(bc2.chain);
+  });
+
+  it("Does not replace chain if the new chain is not longer than the current chain", () => {
+    bc.addBlock("Block Data");
+    bc.replaceChain(bc2.chain);
+
+    expect(bc.chain).not.toEqual(bc2.chain);
+  });
 });
