@@ -1,4 +1,8 @@
-const Block = require("./block");
+const Blockchain = require("./block_chain");
 
-const goodBlock = Block.mineBlock(Block.genesis(), "good data");
-console.log(goodBlock.toString());
+const bc = new Blockchain();
+
+// adding 10 block to the block chain
+for (let i = 0; i < 10; i++) {
+  console.log(bc.addBlock(`NewBlock ${i}`).toString());
+}
