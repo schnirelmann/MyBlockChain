@@ -1,10 +1,6 @@
 const ChainUtility = require("../chain-util");
 const Wallet = require("./index");
 
-/**
- * Creates a new transaction.
- * @param {Wallet} senderWallet - The wallet of the sender.
- */
 class Transaction {
   constructor() {
     this.id = ChainUtility.id();

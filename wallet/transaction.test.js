@@ -30,6 +30,10 @@ describe("Transaction", () => {
     ).toEqual(amountToSend);
   });
 
+  it("inputs the balance of the senderWallet", () => {
+    expect(transaction.input.amount).toEqual(senderWallet.balance);
+  });
+
   describe("Invalid Transaction tries to send more than balance", () => {
     beforeEach(() => {
       amountToSend = 999999;
