@@ -1,29 +1,36 @@
 const ChainUtility = require("../chain-util");
+const Wallet = require("./index");
 
+/**
+ * Creates a new transaction.
+ * @param {Wallet} senderWallet - The wallet of the sender.
+ */
 class Transaction {
   constructor() {
     this.id = ChainUtility.id();
     this.input = null;
-    this.output = [];
+    this.outputs = [];
   }
 
-  static newTransaction(senderWallet, recipient, amountToSend) {
+  static newTransaction(senderWallet, recipient, amount) {
     const transaction = new this();
 
-    if (amountToSend > senderWallet.balance) {
-      console.log(`Not enough money in wallet to make this transaction`);
+    if (amount > senderWallet.balance) {
+      console.log(`Amount ${amount} exceeds balance! Transaction aborted.`);
       return;
     }
 
-    transaction.output.push(
+    transaction.outputs.push(
       ...[
         {
-          amount: senderWallet.balance - amountToSend,
+          amount: senderWallet.balance - amount,
           publicKey: senderWallet.publicKey,
         },
-        { amountToSend, publicKey: recipient },
+        { amount, publicKey: recipient },
       ]
     );
+
+    return transaction;
   }
 }
 

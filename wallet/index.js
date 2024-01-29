@@ -11,8 +11,7 @@ class Wallet {
   toString() {
     return `Wallet:
         publicKey: ${this.publicKey.toString()}
-        balance  : ${this.balance}
-        `;
+        balance  : ${this.balance}`;
   }
 }
 
