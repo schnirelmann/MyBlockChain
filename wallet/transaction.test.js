@@ -34,6 +34,15 @@ describe("Transaction", () => {
     expect(transaction.input.amount).toEqual(senderWallet.balance);
   });
 
+  it("check for valid signature", () => {
+    expect(Transaction.verifyTransaction(transaction)).toBe(true);
+  });
+
+  it("checks for invalid signature", () => {
+    transaction.outputs[0].amount = 999999;
+    expect(Transaction.verifyTransaction(transaction)).toBe(false);
+  });
+
   describe("Invalid Transaction tries to send more than balance", () => {
     beforeEach(() => {
       amountToSend = 999999;
