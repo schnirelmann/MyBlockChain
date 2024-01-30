@@ -39,6 +39,14 @@ class Transaction {
       signature: senderWallet.signature(ChainUtility.hash(transaction.outputs)),
     };
   }
+
+  static verifyTransaction(transaction) {
+    return ChainUtility.verifySignature(
+      transaction.input.publicKey,
+      transaction.input.signature,
+      ChainUtility.hash(transaction.outputs)
+    );
+  }
 }
 
 module.exports = Transaction;
