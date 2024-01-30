@@ -8,7 +8,7 @@ class Transaction {
     this.outputs = [];
   }
 
-  static updateTransaction(senderWallet, recipient, amount) {
+  updateTransaction(senderWallet, recipient, amount) {
     const senderOutput = this.outputs.find(
       (output) => output.publicKey === senderWallet.publicKey
     );
