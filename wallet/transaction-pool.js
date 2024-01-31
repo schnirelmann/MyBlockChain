@@ -3,6 +3,10 @@ class TransactionPool {
     this.transactions = [];
   }
 
+  checkIfTransactionExists(publicKey) {
+    return this.transactions.find((t) => t.input.publicKey === publicKey);
+  }
+
   updateOrAddTransaction(transaction) {
     let transactionWithId = this.transactions.find(
       (t) => t.id === transaction.id
