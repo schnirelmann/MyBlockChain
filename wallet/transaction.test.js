@@ -39,13 +39,13 @@ describe("Transaction", () => {
   });
 
   it("checks for invalid signature", () => {
-    transaction.outputs[0].amount = 999999;
+    transaction.outputs[0].amount = 8888;
     expect(Transaction.verifyTransaction(transaction)).toBe(false);
   });
 
   describe("Invalid Transaction tries to send more than balance", () => {
     beforeEach(() => {
-      amountToSend = 999999;
+      amountToSend = 9999;
       transaction = Transaction.newTransaction(
         senderWallet,
         recipient,
